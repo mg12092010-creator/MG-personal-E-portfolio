@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal e-Portfolio</title>
+
+  <!-- Google Font (contrasting, readable) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1: #071A3A; /* deep navy */
+      --bg-2: #0E2A59; /* slightly lighter */
+      --accent: #7FE3D6; /* contrasting mint */
+      --muted: #9fb4c8;
+      --card: rgba(255,255,255,0.03);
+      --glass: rgba(255,255,255,0.04);
+      --radius: 12px;
+      --max-width: 1100px;
+    }
+
+    *{box-sizing: border-box}
+    html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,"Helvetica Neue",Arial;}
+
+    body{
+      background: linear-gradient(180deg,var(--bg-1),var(--bg-2));
+      color: #e9f6f2;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      display:flex;
+      justify-content:center;
+      align-items: flex-start;
+      gap:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:14px;
+    }
+    .logo{
+      width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#5fe0d0);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--bg-2);
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    }
+    .brand h1{margin:0;font-size:18px;letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{display:flex;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    nav a:hover{color:var(--accent);background:var(--glass)}
+
+    main{
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;
+    }
+
+    /* LEFT: hero + projects */
+    .card{background:var(--card);padding:20px;border-radius:var(--radius);backdrop-filter: blur(6px);box-shadow: 0 6px 18px rgba(0,0,0,0.45);}
+
+    .hero{padding:28px 20px;display:flex;gap:20px;align-items:center}
+    .hero .intro{flex:1}
+    .intro h2{margin:0 0 6px 0;font-size:26px}
+    .intro p{margin:0;color:var(--muted)}
+    .cta{margin-top:12px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#5fe0d0);color:var(--bg-2);font-weight:700;text-decoration:none}
+
+    /* Skills */
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .skill{background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted);}
+    .skill strong{color:var(--accent);}
+
+    /* Projects grid */
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));}
+    .project h3{margin:0 0 8px 0;font-size:14px}
+    .project p{margin:0;font-size:13px;color:var(--muted)}
+    .project .tag{display:inline-block;margin-top:8px;font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(127,227,214,0.08);color:var(--accent);}
+
+    /* RIGHT: sidebar */
+    .profile{display:flex;flex-direction:column;gap:12px;align-items:center;padding-top:18px}
+    .avatar{width:120px;height:120px;border-radius:20px;background:linear-gradient(135deg,#133b60,#0a2740);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:var(--accent);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+    .about{text-align:center;color:var(--muted)}
+
+    /* contact */
+    .contact-form{display:flex;flex-direction:column;gap:8px}
+    label{font-size:13px;color:var(--muted)}
+    input,textarea{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit;font-size:14px}
+    textarea{min-height:110px;resize:vertical}
+    .small{font-size:12px;color:var(--muted)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Responsive */
+    @media (max-width:980px){
+      main{grid-template-columns:1fr;}
+      .projects-grid{grid-template-columns:repeat(1,1fr)}
+      .avatar{width:96px;height:96px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MG</div>
+        <div>
+          <h1>Mohammed ghazi</h1>
+          <p>Web Designer • Student</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <div class="card hero">
+          <div class="intro">
+            <h2>Hello — I'm Mohammed ghazi</h2>
+            <p>I am passionate about technology, programming, and creating meaningful digital experiences. I believe the best solutions are found at the intersection of design and functionality, which drives my work in UI/UX and web design. My goal is to use my skills in HTML, CSS, and JavaScript to develop beautiful, intuitive, and highly functional interfaces that truly enhance the user journey.</p>
+
+            <div class="cta">
+              <a class="btn" href="#projects">View projects</a>
+            </div>
+
+            <div id="skills" class="skills" aria-label="skill chips">
+              <div class="skill">HTML</div>
+              <div class="skill"><strong>CSS</strong></div>
+              <div class="skill">JavaScript</div>
+              <div class="skill">Web design</div>
+              <div class="skill">Prototype</div>
+              <div class="skill">Accessibility</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="projects" class="card" style="margin-top:18px;">
+          <h2 style="margin:0 0 8px 0">Selected Projects</h2>
+          <p class="small" style="margin-top:0">A few highlights — click to view (link placeholders).</p>
+
+          <div class="projects-grid">
+            <article class="project">
+              <h3>Design and Technology project</h3>
+              <p>This project involved the complete design, development, and deployment of a dynamic, responsive website, demonstrating a thorough understanding of the digital product lifecycle.</p>
+              <span class="tag">HTML • CSS • JS</span>
+            </article>
+
+            <article class="project">
+              <h3>Personal project</h3>
+              <p>This personal project is a dynamic website investigating how the energy and passion of sports can be effectively translated into a digital environment.</p>
+              <span class="tag">Web design. prototyping </span>
+            </article>
+
+            <article class="project">
+              <h3>Design System</h3>
+              <p>Components, tokens and documentation used across multiple projects.</p>
+              <span class="tag">Web Design • Prototype</span>
+            </article>
+
+            <article class="project">
+              <h3>CSS Experiments</h3>
+              <p>Micro-interactions, complex layouts and responsive patterns.</p>
+              <span class="tag">CSS • Accessibility</span>
+            </article>
+          </div>
+        </div>
+
+      </section>
+
+      <aside>
+        <div class="card profile">
+          <div class="avatar">MG</div>
+          <div class="about">
+            <h3 style="margin:6px 0 4px 0">About me</h3>
+            <p class="small">I create digital experiences driven by a passion for technology and UI/UX web design. I use HTML, CSS, and JavaScript to build beautiful, intuitive, and highly functional interfaces.</p>
+          </div>
+
+          <div style="width:100%;margin-top:6px">
+            <h4 style="margin:0 0 6px 0">Contact</h4>
+            <form id="contact" class="contact-form" onsubmit="handleSubmit(event)">
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" required />
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="say hi!" required></textarea>
+
+              <button type="submit" class="btn" style="width:100%;margin-top:6px">Send</button>
+            </form>
+          </div>
+
+          <div style="width:100%;margin-top:12px;text-align:center">
+            <p class="small">Or email: <a href="mailto:mg12092010@gmail.com" style="color:var(--accent);text-decoration:none">hello@example.com</a></p>
+          </div>
+        </div>
+
+        <footer>
+          <span>© <strong>Mohammed ghazi</strong></span>
+          <span class="small">Built with care • Dark blue theme</span>
+        </footer>
+      </aside>
+
+    </main>
+  </div>
+
+  <script>
+    function handleSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // For demo: open mail client. In a real site you'd POST to a server or use a form service.
+      const subject = encodeURIComponent('Portfolio contact from ' + name);
+      const body = encodeURIComponent(message + "\n\n— " + name + " (" + email + ")");
+      window.location.href = `mailto:mg12092010@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
